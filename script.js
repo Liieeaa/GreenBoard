@@ -1,48 +1,3 @@
-
-// Inject badge tab content after main loads
-document.addEventListener('DOMContentLoaded', function() {
-  const main = document.querySelector('main.main');
-  const badgeTabDiv = document.createElement('div');
-  badgeTabDiv.id = 'tab-badges';
-  badgeTabDiv.className = 'tab-content';
-  badgeTabDiv.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px;">
-      <div>
-        <div style="font-size:20px;font-weight:600;color:var(--text-primary);">🏅 Badge-Sammlung</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Alle sammelbaren Badges · Freischaltbedingungen · Fortschritt</div>
-      </div>
-    </div>
-    <!-- Sammelstatus-Leiste -->
-    <div class="badge-collect-bar" id="badgeCollectBar">
-      <div class="bcb-text">
-        <div class="bcb-title" id="bcbTitle">0 von 40 Badges gesammelt</div>
-        <div class="bcb-subtitle" id="bcbMotiv">Sammle deinen ersten Badge!</div>
-      </div>
-      <div class="bcb-bar-wrap">
-        <div class="bcb-track"><div class="bcb-fill" id="bcbFill" style="width:0%"></div></div>
-        <div class="bcb-pct" id="bcbPct">0%</div>
-      </div>
-    </div>
-    <!-- Kategorie-Filter -->
-    <div class="badge-cat-tabs" id="badgeCatTabs">
-      <button class="badge-cat-tab active" onclick="filterBadgeCat('alle',this)">Alle</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('mobilitaet',this)">🚲 Mobilität</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('papier',this)">📄 Papier & Digital</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('energie',this)">⚡ Energie</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('ernaehrung',this)">🥗 Ernährung</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('aktivitaet',this)">🔥 Aktivität & Serie</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('teamleistung',this)">👥 Teamleistung</button>
-      <button class="badge-cat-tab" onclick="filterBadgeCat('spezial',this)">⭐ Spezialbadges</button>
-    </div>
-    <!-- Badge-Grid -->
-    <div id="badgeCollectionGrid" class="badge-collection-grid"></div>
-  `;
-  main.appendChild(badgeTabDiv);
-  renderBadgeCollection('alle');
-});
-
-
-
 const now = new Date();
 const jan1 = new Date(now.getFullYear(),0,1);
 const kw = Math.ceil(((now-jan1)/86400000+jan1.getDay()+1)/7);
@@ -1281,3 +1236,45 @@ function renderSpotlight(){
   };
 })();
 
+
+// Inject badge tab content after main loads
+document.addEventListener('DOMContentLoaded', function() {
+  const main = document.querySelector('main.main');
+  const badgeTabDiv = document.createElement('div');
+  badgeTabDiv.id = 'tab-badges';
+  badgeTabDiv.className = 'tab-content';
+  badgeTabDiv.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:10px;">
+      <div>
+        <div style="font-size:20px;font-weight:600;color:var(--text-primary);">🏅 Badge-Sammlung</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Alle sammelbaren Badges · Freischaltbedingungen · Fortschritt</div>
+      </div>
+    </div>
+    <!-- Sammelstatus-Leiste -->
+    <div class="badge-collect-bar" id="badgeCollectBar">
+      <div class="bcb-text">
+        <div class="bcb-title" id="bcbTitle">0 von 40 Badges gesammelt</div>
+        <div class="bcb-subtitle" id="bcbMotiv">Sammle deinen ersten Badge!</div>
+      </div>
+      <div class="bcb-bar-wrap">
+        <div class="bcb-track"><div class="bcb-fill" id="bcbFill" style="width:0%"></div></div>
+        <div class="bcb-pct" id="bcbPct">0%</div>
+      </div>
+    </div>
+    <!-- Kategorie-Filter -->
+    <div class="badge-cat-tabs" id="badgeCatTabs">
+      <button class="badge-cat-tab active" onclick="filterBadgeCat('alle',this)">Alle</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('mobilitaet',this)">🚲 Mobilität</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('papier',this)">📄 Papier & Digital</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('energie',this)">⚡ Energie</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('ernaehrung',this)">🥗 Ernährung</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('aktivitaet',this)">🔥 Aktivität & Serie</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('teamleistung',this)">👥 Teamleistung</button>
+      <button class="badge-cat-tab" onclick="filterBadgeCat('spezial',this)">⭐ Spezialbadges</button>
+    </div>
+    <!-- Badge-Grid -->
+    <div id="badgeCollectionGrid" class="badge-collection-grid"></div>
+  `;
+  main.appendChild(badgeTabDiv);
+  renderBadgeCollection('alle');
+});
