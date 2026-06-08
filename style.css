@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
   :root {
     --green-900:#0d2b0f;--green-800:#1a4d1e;--green-700:#1f6b24;--green-600:#2d8c34;
     --green-500:#3aaa42;--green-400:#5ec466;--green-300:#8dd893;--green-200:#bfecbf;
@@ -531,3 +531,4 @@
   .sp-selector-bar label{font-size:13px;font-weight:500;color:var(--text-primary);}
   /* Below-card info panels */
   .spotlight-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
